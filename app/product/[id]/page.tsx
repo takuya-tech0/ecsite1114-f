@@ -192,7 +192,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
             <div>
               {product.image_url ? (
                 <img
-                  src={product.image_url}
+                  src="https://placehold.jp/150x150.png"
                   alt={product.name}
                   className="w-full rounded-lg"
                 />
