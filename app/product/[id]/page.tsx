@@ -26,7 +26,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/api/products/${params.id}`);
+        const res = await fetch(`http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/products/${params.id}`);
         const data = await res.json();
         setProduct(data);
       } catch (error) {
@@ -50,7 +50,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
     
     setAddingToCart(true);
     try {
-      const response = await fetch('http://localhost:8000/api/cart/add', {
+      const response = await fetch('http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/cart/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
     setPurchasing(true);
     try {
       // まずカートに追加
-      const cartResponse = await fetch('http://localhost:8000/api/cart/add', {
+      const cartResponse = await fetch('http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/cart/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
       }
 
       // 注文作成
-      const orderResponse = await fetch('http://localhost:8000/api/orders/create', {
+      const orderResponse = await fetch('http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/orders/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

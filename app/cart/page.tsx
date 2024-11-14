@@ -31,7 +31,7 @@ export default function Cart() {
 
     const fetchCartItems = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/api/cart/items?user_id=${userId}`);
+        const res = await fetch(`http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/cart/items?user_id=${userId}`);
         if (!res.ok) throw new Error('カートの取得に失敗しました');
         const data = await res.json();
         setCartItems(data);
@@ -53,7 +53,7 @@ export default function Cart() {
     }
 
     try {
-      const response = await fetch(`http://localhost:8000/api/cart/items/${itemId}`, {
+      const response = await fetch(`http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/cart/items/${itemId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export default function Cart() {
       
       if (!response.ok) throw new Error('数量の更新に失敗しました');
       
-      const res = await fetch(`http://localhost:8000/api/cart/items?user_id=${userId}`);
+      const res = await fetch(`http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/cart/items?user_id=${userId}`);
       const data = await res.json();
       setCartItems(data);
     } catch (error) {
@@ -79,13 +79,13 @@ export default function Cart() {
     }
 
     try {
-      const response = await fetch(`http://localhost:8000/api/cart/items/${itemId}`, {
+      const response = await fetch(`http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/cart/items/${itemId}`, {
         method: 'DELETE',
       });
       
       if (!response.ok) throw new Error('商品の削除に失敗しました');
       
-      const res = await fetch(`http://localhost:8000/api/cart/items?user_id=${userId}`);
+      const res = await fetch(`http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/cart/items?user_id=${userId}`);
       const data = await res.json();
       setCartItems(data);
     } catch (error) {
@@ -105,7 +105,7 @@ export default function Cart() {
     setPurchasing(true);
     try {
       // 注文作成
-      const response = await fetch('http://localhost:8000/api/orders/create', {
+      const response = await fetch('http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/orders/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

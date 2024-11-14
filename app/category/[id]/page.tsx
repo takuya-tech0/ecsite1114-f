@@ -23,7 +23,7 @@ export default function CategoryProductsPage({ params }: { params: { id: string 
     const fetchProductsByCategory = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`http://localhost:8000/api/products/category/${categoryId}`);
+        const response = await fetch(`http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/products/category/${categoryId}`);
         const data = await response.json();
         setProducts(data);
       } catch (error) {

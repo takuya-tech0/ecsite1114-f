@@ -37,7 +37,7 @@ export default function OrderHistory() {
 
     const fetchOrders = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/api/orders?user_id=${userId}`);
+        const res = await fetch(`http://ec1114.ap-northeast-1.elasticbeanstalk.com/api/orders?user_id=${userId}`);
         if (!res.ok) throw new Error('注文履歴の取得に失敗しました');
         const data = await res.json();
         setOrders(data);
