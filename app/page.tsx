@@ -100,7 +100,7 @@
                   {product.image_url ? (
                     <div className="relative aspect-square cursor-pointer">
                       <img 
-                        src={product.image_url} 
+                        src="https://placehold.jp/150x150.png"
                         alt={product.name}
                         className="w-full h-full object-cover"
                       />
